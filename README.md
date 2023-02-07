@@ -8,3 +8,4 @@ RxJS Operators
 #Filtering Operators
 -filter operator : verilen dizide belirtilen şartı sağlayan nesneleri döner.
 -debounceTime operator : gelen datalar arasındaki süre farkı verilen süreden fazlaysa döndürür.
+-skipUntil operator : parametre olarak observable nesnesi alır. observable datayı yayınlayana kadar kendi nesnesini atlattırıyor.

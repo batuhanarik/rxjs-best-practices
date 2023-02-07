@@ -1,7 +1,7 @@
 import './style.css';
 import './index.html';
-import { of, from, Observable, timer, filter, fromEvent } from 'rxjs';
-import { map, debounceTime } from 'rxjs/operators';
+import { of, from, Observable, timer, filter, fromEvent, interval } from 'rxjs';
+import { map, debounceTime, skipUntil } from 'rxjs/operators';
 
 // // of operator
 // const values = of('Batu', [1, 2, 3], 4, 4.3, 'best-practices', {
@@ -74,9 +74,24 @@ import { map, debounceTime } from 'rxjs/operators';
 // );
 
 //debounceTime operator
-const input = document.getElementById('textSearch');
-fromEvent(input, 'keyup')
-  .pipe(debounceTime(300))
-  .subscribe((data) => {
-    console.log(data.target.value);
-  });
+// const input = document.getElementById('textSearch');
+// fromEvent(input, 'keyup')
+//   .pipe(debounceTime(300))
+//   .subscribe((data) => {
+//     console.log(data.target.value);
+//   });
+
+//skipUntil operator
+// const myTimer = interval(1000);
+// myTimer.pipe(skipUntil(timer(5000))).subscribe((val) => {
+//   console.log(val);
+// });
+
+//example-2
+
+const myclick = fromEvent(document, 'click');
+const myInterval = interval(1000);
+
+myInterval.pipe(skipUntil(myclick)).subscribe((data) => {
+  console.log(data);
+});
