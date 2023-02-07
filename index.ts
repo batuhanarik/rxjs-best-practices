@@ -34,7 +34,7 @@ const subscription = publisher2.subscribe(
   () => {
     console.log('Veri alma işlemi tamamlandı.');
   }
-);
+); 
 setTimeout(() => {
   console.log('Timer 2 durduruldu.');
   subscription.unsubscribe();
